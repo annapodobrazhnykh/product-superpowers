@@ -13,12 +13,8 @@ The skill files are written in Russian. The agent replies in whatever language y
 - **A navigator.** It works out what you came with: a one-off request, a mid-process entry, or the full path. It picks a route for the type of idea and leads step by step.
 - **A four-stage route** with human sign-off after every step: Idea → Opportunity Discovery → Solution Discovery → Delivery.
 - **Two routes.** Improving a live product goes through the funnel. A new initiative goes through market and niche. Small changes take a short path straight to an A/B test.
-- **The user's key challenge** instead of a list of pains: the one obstacle that explains the rest.
-- **A solution hypothesis built on user value:** "if we build A, we solve problem B and get effect C", where C is measured by the NSM and the business metric follows from it.
-- **Economics in two passes:** first a calculator model, then, once the launch plan exists, a month-by-month model where every change has a stated cause.
-- **Assumption testing:** everything the model assumes is tied to a check on the MVP or in an experiment.
 - **Stage critics and a final critic** working from checklists: what is done, what is missing, what rests on an assumption.
-- **Research tools:** research design, interview guide, synthetic interviews, interview critique, interview synthesis, survey check, assumption check, experiment design.
+- **Research help:** the agent helps you plan and run user interviews, or runs synthetic interviews for a quick first pass.
 - **Plain language:** the agent explains in simple words and ends every step with a "What to decide now" block.
 
 ## Install
@@ -51,7 +47,7 @@ After installing, open a new chat and check: "List the Triple Diamond stages and
 | 3. Solution Discovery | What we build, what it gives, how we test it cheaply and how we launch | `stage-3-vision`, `stage-3-plan`, `stage-3-critic`, `final-critic` |
 | 4. Delivery | How we launch, what production data shows, what we do next | `stage-4-delivery`, `stage-4-learn` |
 
-Tools you can call at any point: `tool-research-design`, `tool-interview-guide`, `tool-synthetic-interviews`, `tool-interview-critique`, `tool-interview-synthesis`, `tool-survey-check`, `tool-assumptions`, `tool-experiment-design`.
+Besides the route, there are tools you can call at any point. They cover user research and surveys, market sizing and competitive analysis, problem framing and prioritization, experiments, PRDs and user stories, launch checklists, and retrospectives.
 
 ## How it works
 
