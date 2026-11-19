@@ -1,81 +1,81 @@
 # Product Superpowers: Triple Diamond
 
-Набор скиллов для Claude и Codex, который ведёт продуктовую инициативу от идеи до запуска: по шагам, с приёмкой после каждого шага и критиком в конце каждой стадии.
+Agent skills for Claude and Codex that walk a product initiative from idea to launch: one step at a time, with a human sign-off after each step and a critic at the end of each stage.
 
-*Agent skills that walk a product initiative from idea to launch along the Triple Diamond: one step at a time, with a human sign-off after each step and a critic at the end of each stage. The skills are written in Russian.*
+The skill files are written in Russian. The agent replies in whatever language you write in.
 
-## Что в основе и что добавлено
+## What it is built on and what is added
 
-**В основе** — открытая база [product-on-purpose/pm-skills](https://github.com/product-on-purpose/pm-skills) (Apache 2.0): 68 продуктовых скиллов под отдельные артефакты — PRD, user stories, конкурентный анализ, оценка рынка, дизайн эксперимента и другие. Они лежат здесь без изменений и работают как инструменты.
+**Built on** [product-on-purpose/pm-skills](https://github.com/product-on-purpose/pm-skills) (Apache 2.0): 68 product management skills, each producing one artifact — PRD, user stories, competitive analysis, market sizing, experiment design and more. They are included here unmodified and work as tools.
 
-**Добавлено поверх:**
+**Added on top:**
 
-- **Навигатор.** Понимает, с чем пришёл человек: точечная просьба, вход с середины или полный путь. Выбирает маршрут под тип идеи и ведёт по шагам.
-- **Маршрут из четырёх стадий** с приёмкой человеком после каждого шага: идея → Opportunity Discovery → Solution Discovery → Delivery.
-- **Два маршрута.** Улучшение работающего продукта идёт через воронку. Новая инициатива идёт через рынок и нишу. Для мелких изменений есть короткий путь сразу к A/B.
-- **Ключевой вызов пользователя** вместо списка болей: одно препятствие, которое объясняет остальные.
-- **Гипотеза решения через ценность:** «если сделаем A, то решим проблему B, и получим эффект C», где C измеряется NSM, а бизнес-метрика — её следствие.
-- **Экономика в два захода:** сначала модель-калькулятор, после плана запуска — модель по месяцам, где у каждого изменения есть причина.
-- **Проверка предположений:** всё, что заложено в модель, привязано к проверке на MVP или эксперименте.
-- **Критики стадий и финальный критик** по чек-листам: что сделано, что не сделано, что стоит на предположении.
-- **Инструменты исследований:** дизайн исследования, гайд интервью, синтетические интервью, разбор проведённого интервью, синтез, опрос, проверка предположений, дизайн эксперимента.
-- **Понятный язык:** агент объясняет простыми словами и заканчивает каждый шаг блоком «Что решить сейчас».
+- **A navigator.** It works out what you came with: a one-off request, a mid-process entry, or the full path. It picks a route for the type of idea and leads step by step.
+- **A four-stage route** with human sign-off after every step: Idea → Opportunity Discovery → Solution Discovery → Delivery.
+- **Two routes.** Improving a live product goes through the funnel. A new initiative goes through market and niche. Small changes take a short path straight to an A/B test.
+- **The user's key challenge** instead of a list of pains: the one obstacle that explains the rest.
+- **A solution hypothesis built on user value:** "if we build A, we solve problem B and get effect C", where C is measured by the NSM and the business metric follows from it.
+- **Economics in two passes:** first a calculator model, then, once the launch plan exists, a month-by-month model where every change has a stated cause.
+- **Assumption testing:** everything the model assumes is tied to a check on the MVP or in an experiment.
+- **Stage critics and a final critic** working from checklists: what is done, what is missing, what rests on an assumption.
+- **Research tools:** research design, interview guide, synthetic interviews, interview critique, interview synthesis, survey check, assumption check, experiment design.
+- **Plain language:** the agent explains in simple words and ends every step with a "What to decide now" block.
 
-## Как поставить
+## Install
 
-**Любой агент** (Codex, Claude Code, Cursor и другие), через [skills CLI](https://github.com/vercel-labs/skills):
+**Any agent** (Codex, Claude Code, Cursor and others) via the [skills CLI](https://github.com/vercel-labs/skills):
 
 ```
 npx skills add annapodobrazhnykh/product-superpowers
 ```
 
-**Claude Code**, как плагин:
+**Claude Code**, as a plugin:
 
 ```
 /plugin marketplace add annapodobrazhnykh/product-superpowers
 /plugin install triple-diamond@product-superpowers
 ```
 
-**Попросить агента.** Дайте Claude или Codex ссылку на этот репозиторий и напишите: «Поставь этот набор скиллов в мой проект и положи AGENTS.md в корень проекта».
+**Ask your agent.** Give Claude or Codex the link to this repository and say: "Install this skill set into my project and put AGENTS.md in the project root."
 
-**Вручную.** Скопируйте папку `skills` в `.agents/skills` вашего проекта (для Claude Code — в `.claude/skills`), а `AGENTS.md` — в корень проекта.
+**Manually.** Copy the `skills` folder into `.agents/skills` in your project (`.claude/skills` for Claude Code) and `AGENTS.md` into the project root.
 
-После установки откройте новый чат и проверьте: «Перечисли стадии Triple Diamond и скиллы для них».
+After installing, open a new chat and check: "List the Triple Diamond stages and the skills for each."
 
-## Карта
+## Map
 
-| Stage | Вопрос | Скиллы |
+| Stage | Question | Skills |
 |---|---|---|
-| 1. Idea | Что улучшаем или куда идём, какой метрикой меряем | `stage-1-idea` |
-| 2. Opportunity Discovery | Какое главное препятствие пользователя снимаем | `stage-2-market`, `stage-2-users`, `stage-2-funnel`, `stage-2-competitors`, `stage-2-synthesis`, `stage-2-critic` |
-| 3. Solution Discovery | Что делаем, что это даст, как дёшево проверим и как выйдем | `stage-3-vision`, `stage-3-plan`, `stage-3-critic`, `final-critic` |
-| 4. Delivery | Как запускаем, что видим на проде, что делаем дальше | `stage-4-delivery`, `stage-4-learn` |
+| 1. Idea | What are we improving or where are we going, and which metric measures it | `stage-1-idea` |
+| 2. Opportunity Discovery | Which main user obstacle are we removing | `stage-2-market`, `stage-2-users`, `stage-2-funnel`, `stage-2-competitors`, `stage-2-synthesis`, `stage-2-critic` |
+| 3. Solution Discovery | What we build, what it gives, how we test it cheaply and how we launch | `stage-3-vision`, `stage-3-plan`, `stage-3-critic`, `final-critic` |
+| 4. Delivery | How we launch, what production data shows, what we do next | `stage-4-delivery`, `stage-4-learn` |
 
-Инструменты, которые можно позвать в любой момент: `tool-research-design`, `tool-interview-guide`, `tool-synthetic-interviews`, `tool-interview-critique`, `tool-interview-synthesis`, `tool-survey-check`, `tool-assumptions`, `tool-experiment-design`.
+Tools you can call at any point: `tool-research-design`, `tool-interview-guide`, `tool-synthetic-interviews`, `tool-interview-critique`, `tool-interview-synthesis`, `tool-survey-check`, `tool-assumptions`, `tool-experiment-design`.
 
-## Как это работает
+## How it works
 
-- Один шаг за раз. После шага агент показывает результат и заканчивает блоком «Что решить сейчас».
-- Если шаг стоит на предположениях, агент предложит выбор: проверить их или принять и идти дальше.
-- После гайда интервью агент предложит синтетические интервью, если такую аудиторию можно сыграть. Подтверждением они не считаются.
-- Критик стадии запускается в конце стадии и только после вашего «да».
-- Можно прийти с точечной просьбой: «проверь гайд интервью», «собери опрос». Агент сделает только это.
-- Если пришли с середины («сделай прототип»), агент задаст до пяти коротких вопросов о пропущенном. Скажите «пропускаем» — и он сделает то, что просили.
-- По умолчанию агент ничего не публикует наружу: прототип делается одним локальным HTML-файлом.
+- One step at a time. After each step the agent shows the result and ends with "What to decide now".
+- If a step rests on assumptions, the agent offers a choice: test them or accept them and move on.
+- After an interview guide, the agent offers synthetic interviews when the audience can plausibly be simulated. They never count as confirmation.
+- A stage critic runs at the end of a stage, and only after you say yes.
+- You can come with a one-off request: "check my interview guide", "build a survey". The agent does just that.
+- If you enter mid-process ("build a prototype"), the agent asks up to five short questions about what was skipped. Say "skip" and it does what you asked.
+- By default the agent publishes nothing externally: a prototype is a single local HTML file.
 
-## Как начать
+## Getting started
 
-Напишите идею одной фразой и добавьте «веди меня по шагам»:
+Describe your idea in one sentence and add "lead me step by step":
 
-> Я продакт в банке. Хочу сделать учёт общих трат компании друзей в поездке. Веди меня по шагам.
+> I'm a PM at a bank. I want to build shared expense tracking for a group of friends on a trip. Lead me step by step.
 
-Полезные фразы:
+Useful phrases:
 
-- «Пропускаем» — не проходить пропущенные стадии.
-- «Сам, без вопросов» — сделать шаг на предположениях.
-- «Запусти критика стадии».
-- «Покажи паспорт инициативы».
+- "Skip" — don't go back through skipped stages.
+- "Do it yourself, no questions" — run the step on assumptions.
+- "Run the stage critic."
+- "Show the initiative passport."
 
-## Лицензия
+## License
 
-Apache 2.0. Скиллы из pm-skills принадлежат их авторам, подробности в файле `NOTICE`.
+Apache 2.0. The pm-skills skills belong to their authors; see `NOTICE`.
